@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+
+    <!-- CASE 1. 헤드 내부 선언 
+        Default 
+        script HTML 파싱중 해당 소스를 만나면 
+        js파일 페칭 후 실행 한 후에 이후 BODY HTML 파싱 처리
+    <script src='main.js'></script> -->
+    <!-- CASE 2. 헤드 내부 선언 
+        asyn
+        script HTML 파싱중 해당 소스를 만나면 
+        js파일을 병렬 처리 하여 다운로드 처리하는 시간은 단축할 수 있으나
+        DOM 요소를 조작하는 부분이 있을 경우 인식되지 않은 태그가 존재할 수 있음. 
+        <script asys src='main.js'></script> -->
+
+    <!-- CASE 3. 헤드 내부 선언 
+        Defer 
+        html 파싱시 defer 옵션을 만나면 병렬처리하여 파일 다운로드함.
+        이후 HTML 파싱 완료 후 js 사용.
+        가장 유용하게 쓰일 수 있는 옵션 -->
+    <script defer src='main.js'></script>
+</head>
+<body>
+    
+    
+    <!-- CASE 4. 바디 태그 제일 아래 부분 선언
+        HTML 파싱 처리 완료 후 파일 페칭 후 실행 함.
+        이럴 경우 만약 js파일 내부에서 서버와 통신하는 부분있을시에.
+        사용자에게 보여지는 시간 차이가 있을 수 있음.
+        <script src='main.js'></script> -->
+</body>
+</html>
